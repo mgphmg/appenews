@@ -1,0 +1,1 @@
+web: gunicorn enews_project.wsgi

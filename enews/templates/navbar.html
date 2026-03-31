@@ -1,0 +1,42 @@
+{% load static %}
+<div class="navbar">
+    <h3>Dashboard</h3>
+
+    <div class="user-info">
+        <div class="dropdown">
+            <div class="dropdown-toggle" onclick="toggleDropdown()">
+                <img src="{% static 'images/user.png' %}" alt="user">
+                <span>
+                    {% if request.user.role == 'admin' %}
+                        Admin
+                    {% else %}
+                        User
+                    {% endif %}
+                    - {{ request.user.first_name }}
+                </span>
+                <i class="fa fa-caret-down"></i>
+            </div>
+
+            <div id="dropdownMenu" class="dropdown-menu">
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleDropdown() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.classList.toggle("show");
+}
+
+// close dropdown if clicked outside
+window.onclick = function(event) {
+    if (!event.target.closest('.dropdown')) {
+        document.getElementById("dropdownMenu").classList.remove("show");
+    }
+}
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="login-container">
+    <div class="login-card">
+        <div class="icon-circle">
+            <i class="fa-solid fa-user-plus"></i>
+        </div>
+
+        <h2>New Registration</h2>
+
+        {% if error %}
+        <p class="form-error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" name="name" placeholder="Full Name" value="{{ form_data.name|default:'' }}" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" name="email" placeholder="Email Address" value="{{ form_data.email|default:'' }}" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-check-double"></i>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            </div>
+
+            <label class="terms-check">
+                <input type="checkbox" name="agree_terms" id="agree_terms" required>
+                <span>I agree to the <strong>Terms and Conditions</strong> and <strong>Privacy Policy</strong></span>
+            </label>
+
+            <button type="submit" class="login-btn" id="create-account-btn" disabled>Create account</button>
+
+            <div class="back-home">
+                <a href="{% url 'login' %}">Already have an account? Login</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const termsCheckbox = document.getElementById("agree_terms");
+    const createBtn = document.getElementById("create-account-btn");
+
+    function syncCreateButton() {
+        createBtn.disabled = !termsCheckbox.checked;
+    }
+
+    termsCheckbox.addEventListener("change", syncCreateButton);
+    syncCreateButton();
+</script>
+
+</body>
+</html>

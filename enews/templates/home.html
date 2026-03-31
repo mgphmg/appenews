@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENews App</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div class="page-shell">
+        <p class="app-label">ENEWS APP</p>
+
+        <header class="top-nav">
+            <div class="brand">
+                <i class="fa-regular fa-newspaper"></i>
+                <span>ENEWS</span>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#"><i class="fa-solid fa-arrow-trend-up"></i> Trending</a>
+                <a href="#"><i class="fa-solid fa-globe"></i> World</a>
+                <a href="#"><i class="fa-regular fa-bookmark"></i> Saved</a>
+            </nav>
+
+            <div class="actions">
+                <a class="btn btn-light" href="{% url 'login_options' %}">Login</a>
+                <a class="btn btn-dark" href="{% url 'register' %}">Sign Up</a>
+            </div>
+        </header>
+
+        <section class="hero">
+            <h1>Stay Informed with ENEWS</h1>
+            <p>Get the latest news from around the world, curated just for you. Breaking news, trending stories, and in-depth analysis.</p>
+            <div class="hero-actions">
+                <a class="btn btn-dark" href="{% url 'login_options' %}">Get Started</a>
+                <a class="btn btn-light" href="#">Explore News</a>
+            </div>
+        </section>
+
+        <section class="categories">
+            <h2>Browse by Category</h2>
+            <div class="category-grid">
+                <div class="category-card"><i class="fa-solid fa-arrow-trend-up"></i><span>Business</span></div>
+                <div class="category-card"><i class="fa-solid fa-microchip"></i><span>Technology</span></div>
+                <div class="category-card"><i class="fa-solid fa-globe"></i><span>World</span></div>
+                <div class="category-card"><i class="fa-solid fa-football"></i><span>Sports</span></div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

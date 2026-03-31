@@ -1,0 +1,54 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+    rel="stylesheet">
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="login-container">
+    <div class="login-card">
+        
+        <div class="icon-circle">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+
+        <h2>Editor Login</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="input-group">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="forgot">
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">Log In</button>
+
+            <div class="back-home">
+                <a href="/">Back to Home</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
+```

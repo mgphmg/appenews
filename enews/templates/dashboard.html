@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="cards">
+    <div class="card">
+        <h4>Total Users</h4>
+        <p>12,345</p>
+    </div>
+
+    <div class="card">
+        <h4>Total Articles</h4>
+        <p>567</p>
+    </div>
+
+    <div class="card">
+        <h4>Categories</h4>
+        <p>35</p>
+    </div>
+
+    <div class="card">
+        <h4>Pending Comments</h4>
+        <p>89</p>
+    </div>
+</div>
+
+<div class="section">
+    <h3>Recent Articles</h3>
+    <ul>
+        <li>Breaking News Headline - Published</li>
+        <li>New Feature Announcement - Draft</li>
+        <li>World News Update - Published</li>
+    </ul>
+</div>
+
+
+
+<div class="section">
+    <h3>Admin Actions</h3>
+    <a href="{% url 'admin_article' %}" class="btn-submit">
+    Create Article
+</a>
+</div>
+
+{% endblock %}

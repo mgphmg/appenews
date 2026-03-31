@@ -1,0 +1,29 @@
+<div class="sidebar">
+    <h2>📰 News 
+        {% if request.user.role == 'admin' %}
+            Admin
+        {% else %}
+            User
+        {% endif %}
+    </h2>
+
+    <ul>
+        <li class="active"><i class="fa fa-home"></i> Dashboard</li>
+
+        {% if request.user.role == 'admin' %}
+            <!-- ADMIN MENU -->
+            <li><i class="fa fa-users"></i> User Management</li>
+            <li><i class="fa fa-newspaper"></i> Article Management</li>
+            <li><i class="fa fa-folder"></i> Category Management</li>
+            <li><i class="fa fa-chart-line"></i> Analytics</li>
+            <li><i class="fa fa-comments"></i> Comments</li>
+            <li><i class="fa fa-cog"></i> Settings</li>
+
+        {% else %}
+            <!-- NORMAL USER MENU -->
+            <li><i class="fa fa-newspaper"></i> View Articles</li>
+            <li><i class="fa fa-comments"></i> My Comments</li>
+            <li><i class="fa fa-user"></i> Profile</li>
+        {% endif %}
+    </ul>
+</div>

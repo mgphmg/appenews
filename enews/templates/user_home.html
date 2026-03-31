@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="dashboard-header">
+    <h2>Latest News</h2>
+</div>
+
+<div class="articles-container">
+
+    <!-- Article Card -->
+    {% for article in articles %}
+    <div class="article-card">
+
+        <img src="{{ article.image.url }}" alt="article image">
+
+        <div class="article-content">
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.description|truncatewords:20 }}</p>
+
+            <div class="article-footer">
+                <span>By {{ article.author.username }}</span>
+                <span>{{ article.created_at|date:"M d, Y" }}</span>
+            </div>
+        </div>
+
+    </div>
+    {% empty %}
+    <p>No articles available</p>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - ENews</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+</head>
+<body>
+    <main class="welcome-shell">
+        <section class="action-grid">
+            <a class="action-card user-card" href="{% url 'login' %}">
+                <h2>Login</h2>
+                <p>Access your personalized news dashboard and saved feed.</p>
+                <span>Continue</span>
+            </a>
+        </section>
+    </main>
+</body>
+</html>

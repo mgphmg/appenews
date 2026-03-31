@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <ul>
+        <li>Manage Users</li>
+        <li>Approve News</li>
+        <li>Manage Editors</li>
+        <li>Manage Reporters</li>
+    </ul>
+    <form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+</body>
+</html>
