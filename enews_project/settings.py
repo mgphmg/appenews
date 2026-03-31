@@ -62,12 +62,8 @@ import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        
-        # ✅ Correct place for DIRS
-        'DIRS': [os.path.join(BASE_DIR, 'enews', 'templates')],
-        
-        'APP_DIRS': True,
-        
+        'DIRS': [],   
+        'APP_DIRS': True,   
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

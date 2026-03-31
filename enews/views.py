@@ -5,10 +5,10 @@ from .models import User , Article
 from django.contrib.auth.decorators import login_required
 
 def welcome(request):
-    return render(request, 'home.html')
+    return render(request, 'enews/home.html')
 
 def login_options(request):
-    return render(request, 'welcome.html')
+    return render(request, 'enews/welcome.html')
 
 def login_view(request):
     if request.method == "POST":
@@ -34,9 +34,9 @@ def login_view(request):
                 return redirect('user_home')
 
         else:
-            return render(request, "login.html", {"error": "Invalid credentials"})
+            return render(request, "enews/login.html", {"error": "Invalid credentials"})
 
-    return render(request, "login.html")
+    return render(request, "enews/login.html")
 
 
 def register(request):
@@ -65,22 +65,22 @@ def register(request):
         messages.success(request, "Account created successfully")
         return redirect('login')
 
-    return render(request, 'register.html')
+    return render(request, 'enews/register.html')
 
 @login_required
 def user_home(request):
     articles = Article.objects.all().order_by('-created_at')
-    return render(request, 'user_home.html',{ 'articles': articles})
+    return render(request, 'enews/user_home.html',{ 'articles': articles})
 
 
 def admin_home(request):
-    return render(request, 'dashboard.html')
+    return render(request, 'enews/dashboard.html')
 
 def editor_home(request):
-    return render(request, 'editor_home.html')
+    return render(request, 'enews/editor_home.html')
 
 def reporter_home(request):
-    return render(request, 'reporter_home.html')
+    return render(request, 'enews/reporter_home.html')
 
 
 def user_logout(request):
@@ -98,5 +98,5 @@ def admin_article(request):
             image=image,
             author=request.user
         )
-        return render(request, 'article_creation.html',{'message':'Article Saved'})
-    return render(request, 'article_creation.html')
+        return render(request, 'enews/article_creation.html',{'message':'Article Saved'})
+    return render(request, 'enews/article_creation.html')
